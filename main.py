@@ -4,8 +4,8 @@ from gradio_client import Client
 
 app = Flask(__name__)
 async def predict_async(num, about):
-    read_key = os.environ.get('HF_TOKEN', None)
-    client = Client("Nyandori/Germini", hf_token=read_key)
+    
+    client = Client("Nyandori/Germini", hf_token="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")
     result = client.predict(
 		num=num,
 		about=about,
