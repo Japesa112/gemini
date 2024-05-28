@@ -17,8 +17,14 @@ async def predict_async(num, about):
 async def predict():
     num = request.args.get('num')
     about = request.args.get('about')
-    result = await predict_async(num, about)
-    return jsonify({"result": result})
+    final_list = []
+    
+    for i in range(3):
+        result = await predict_async(num, about)
+        final_list.append(result)
+        
+
+    return jsonify({"result": final_list})
 
 @app.route('/hello')
 def hello():
