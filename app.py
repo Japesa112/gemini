@@ -17,11 +17,15 @@ async def predict_async(num, about):
 async def predict():
     num = request.args.get('num')
     about = request.args.get('about')
-    final_list = []
+    final_list= []
     
     for i in range(3):
         result = await predict_async(num, about)
-        final_list.append(result)
+        for x in eval(result):
+            final_list.append(x)
+
+    
+    print(final_list)
         
 
     return jsonify({"result": final_list})
